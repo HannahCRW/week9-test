@@ -71,12 +71,26 @@ end
 def number_of_elements_that_are_palindromes(array)
 end
 
-# return the shortest word in an array
 def shortest_word_in_array(array)
+	word = array.inject(){|shortest,word|
+		if word.length < shortest.length
+			shortest = word
+		else
+			shortest = shortest
+		end
+	}
+	word
 end
 
-# return the longest word in an array
 def longest_word_in_array(array)
+	word = array.inject(''){|biggest,word|
+		if word.length > biggest.length
+			biggest = word
+		else
+			biggest = biggest
+		end
+	}
+	word
 end
 
 def total_of_array(array)
@@ -86,10 +100,11 @@ end
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
+	new_array = (array).concat(array)
 end
 
-# convert a symbol into a string
 def turn_symbol_into_string(symbol)
+	symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
@@ -132,6 +147,7 @@ end
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
+	#delete upcase
 end
 
 # round up a float up and convert it to an Integer,
@@ -178,12 +194,13 @@ end
 def is_a_3_dot_range?(range)
 end
 
-# get the square root of a number
 def square_root_of(number)
+	#number/n = n, number%n = 0
 end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+	#cat, wc?
 end
 
 # --- tougher ones ---
