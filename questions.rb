@@ -1,22 +1,27 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
+
 end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
 end
 
-# remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
+	array.compact!
 end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
+	new_array = array.compact!
+	arr = new_array.reject('false')
+	arr
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
+	#for.each element string.reverse
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -26,13 +31,14 @@ end
 def every_possible_pairing_of_students(array)
 end
 
-# discard the first 3 elements of an array, 
-# e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
+	array.shift(3)
+	array
 end
 
 # add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
+	array.unshift element
 end
 
 # sort an array of words by their last letter, e.g.
@@ -51,11 +57,11 @@ end
 def make_numbers_negative(number)
 end
 
-# turn an array of numbers into two arrays of numbers, one an array of 
-# even numbers, the other an array of odd numbers
-# even numbers come first
-# so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
+	odd_filter = Proc.new {|value| value.odd? }
+	odd_values = array.select(&odd_filter)
+	even_values = array.reject(&odd_filter)
+	[even_values, odd_values]
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -73,9 +79,8 @@ end
 def longest_word_in_array(array)
 end
 
-# add up all the numbers in an array, so [1, 3, 5, 6]
-# returns 15
 def total_of_array(array)
+	array.inject(0, &:+)
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
