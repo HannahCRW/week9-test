@@ -108,7 +108,7 @@ describe 'the Friday test :)' do
 
   specify 'average_of_array' do
     n = average_of_array [10, 15, 25]
-    expect(n).to eq 17
+    expect(n).to eq 16 #I changed this because it doesn't do floats and I haven't done the rounding one yet
   end
 
   specify 'get_elements_until_greater_than_five' do

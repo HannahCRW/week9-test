@@ -1,27 +1,25 @@
-# keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-
+	array.select { |e| e.start_with?("a") }
 end
 
-# keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
+	array.select { |e| e.start_with?("a","e","i","o","u") }
 end
 
 def remove_nils_from_array(array)
 	array.compact!
 end
 
-# remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
 	new_array = array.compact!
-	arr = new_array.reject('false')
+	arr = new_array.delete_if{|e| e == false}
 	arr
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-	#for.each element string.reverse
+	#for each do |e| e.reverse
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -36,7 +34,6 @@ def all_elements_except_first_3(array)
 	array
 end
 
-# add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
 	array.unshift element
 end
@@ -44,17 +41,22 @@ end
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
+	#reverse and then sort?  or by -1?
 end
 
-# cut strings in half, and return the first half, e.g.
-# 'banana' becomes 'ban'. If the string is an odd number of letters
-# round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
+	#half = element.length/2
+	#some kind of unshift for each element?
+	#if element.length%2 == 1
+	#do (element.length+1)/2
 end
 
-# turn a positive integer into a negative integer. A negative integer
-# stays negative
 def make_numbers_negative(number)
+	#if number already negative
+		#return number
+	#elsif number is positive
+		#add '-' to start of number???
+	#end
 end
 
 def separate_array_into_even_and_odd_numbers(array)
@@ -69,6 +71,9 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
+	#if word == word.reverse, []
+	#else delete
+	#[].count
 end
 
 def shortest_word_in_array(array)
@@ -97,8 +102,6 @@ def total_of_array(array)
 	array.inject(0, &:+)
 end
 
-# turn an array into itself repeated twice. So [1, 2, 3]
-# becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
 	new_array = (array).concat(array)
 end
@@ -110,6 +113,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
+	array.inject(0, &:+)/array.length
 end
 
 # get all the elements in an array, up until the first element
@@ -117,6 +121,7 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
+	#needs to have 'break' in here somewhere I think
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -130,6 +135,7 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
+	#split?  then sort
 end
 
 # swap the keys and values in a hash. e.g.
@@ -142,22 +148,25 @@ end
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+	#does inject work for this?
 end
 
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
-	#delete upcase
+	#
 end
 
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
+	#if float, get integer+1
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
+	#if float, get integer (not -1, just integer)
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
@@ -168,6 +177,7 @@ end
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
+	#find the bit between @ and .
 end
 
 # capitalize the first letter in each word of a string, 
@@ -176,6 +186,8 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
+	# except "the", "and" "of" "to" "in"
+	# unless first word
 end
 
 # return true if a string contains any special characters
@@ -192,15 +204,17 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+	range.to_s.include?('...')
 end
 
 def square_root_of(number)
 	#number/n = n, number%n = 0
 end
 
-# count the number of words in a file
 def word_count_a_file(file_path)
-	#cat, wc?
+	file = File.open(file_path)
+	contents = file.read
+	contents.split.size
 end
 
 # --- tougher ones ---
@@ -235,6 +249,7 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+	#fuck
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
@@ -244,4 +259,5 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+	# #{n} bottles of beer on the wall omg
 end
