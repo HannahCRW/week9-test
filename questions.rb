@@ -45,17 +45,19 @@ def array_sort_by_last_letter_of_word(array)
 end
 
 def get_first_half_of_string(string)
-	#half = element.length/2
-	#some kind of unshift for each element?
-	#if element.length%2 == 1
-	#do (element.length+1)/2
+	if string.length%2=0
+		#do a thing
+	else
+		#add one
+		#then do the thing
+	end
 end
 
 def make_numbers_negative(number)
 	#if number already negative
 		#return number
 	#elsif number is positive
-		#add '-' to start of number???
+		# * -1
 	#end
 end
 
