@@ -16,10 +16,10 @@ def remove_nils_and_false_from_array(array)
 	arr
 end
 
-# don't reverse the array, but reverse every word inside it. e.g.
-# ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-	#for each do |e| e.reverse
+	array.each do |e| e.reverse!
+		array
+	end
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
